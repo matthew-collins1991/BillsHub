@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_03_092831) do
+ActiveRecord::Schema.define(version: 2019_04_03_092749) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,13 +27,11 @@ ActiveRecord::Schema.define(version: 2019_04_03_092831) do
   end
 
   create_table "companies", force: :cascade do |t|
-    t.bigint "utility_id"
     t.string "name"
     t.string "url"
     t.string "logo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["utility_id"], name: "index_companies_on_utility_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -49,14 +47,21 @@ ActiveRecord::Schema.define(version: 2019_04_03_092831) do
   end
 
   create_table "utilities", force: :cascade do |t|
-    t.string "name"
-    t.string "type"
+    t.bigint "company_id"
+    t.bigint "user_id"
+    t.string "utility_type"
     t.datetime "start_date"
     t.datetime "renewal_date"
+    t.string "payment_type"
+    t.string "payment_freq"
+    t.boolean "active"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_utilities_on_company_id"
+    t.index ["user_id"], name: "index_utilities_on_user_id"
   end
 
   add_foreign_key "bills", "utilities"
-  add_foreign_key "companies", "utilities"
+  add_foreign_key "utilities", "companies"
+  add_foreign_key "utilities", "users"
 end

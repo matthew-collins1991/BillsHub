@@ -1,4 +1,5 @@
 class Utility < ApplicationRecord
   has_many :bills
-  has_one :comapany
+  belongs_to :company
+  belongs_to :user
 end

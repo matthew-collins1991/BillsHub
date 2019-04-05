@@ -4,8 +4,7 @@ class CreateBills < ActiveRecord::Migration[5.2]
       t.references :utility, foreign_key: true
       t.datetime :bill_date
       t.integer :cost
-      t.string :payment_type
-      t.string :payment_freq
+
 
       t.timestamps
     end
