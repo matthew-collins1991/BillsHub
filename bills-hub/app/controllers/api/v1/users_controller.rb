@@ -43,6 +43,9 @@ class Api::V1::UsersController < ApplicationController
 
 
   def update
+    if params[:password].blank?
+      params.delete(:password)
+    end
     @user.update(user_params)
     if @user.save
       render json: @user, status: :accepted
@@ -55,7 +58,7 @@ class Api::V1::UsersController < ApplicationController
   private
 
   def user_params
-      params.require(:user).permit(:name, :email, :password)
+      params.require(:user).permit(:name, :email, :password, :age, :location, :house_size)
   end
 
 

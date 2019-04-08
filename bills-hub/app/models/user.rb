@@ -5,7 +5,7 @@ class User < ApplicationRecord
                       format: { with: VALID_EMAIL_REGEX },
                       uniqueness: { case_sensitive: false }
     has_secure_password
-    validates :password, presence: true, length: { minimum: 6 }
+    validates :password, length: { minimum: 6 }, :if => :password
   has_many :utilities
   has_many :bills, through: :utilities
 
@@ -16,5 +16,5 @@ class User < ApplicationRecord
     BCrypt::Password.create(string, cost: cost)
   end
 
-  
+
 end
