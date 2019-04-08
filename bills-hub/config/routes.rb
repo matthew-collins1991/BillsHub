@@ -6,8 +6,9 @@ Rails.application.routes.draw do
       resources :utilities
       resources :bills
       resources :companies
-      post 'login', to: 'users#login'
-      get 'validate', to: 'users#validate'
+      post '/login', to: 'users#login'
+      get '/validate', to: 'users#validate'
+      post  '/signup',  to: 'users#create'
     end
   end
 end
