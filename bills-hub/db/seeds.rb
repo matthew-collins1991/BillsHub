@@ -7,9 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-Company.create(name:"Thames Water", url:"thameswater.co.uk", logo:"thames.png")
-Company.create(name:"SSE", url:"SSE.co.uk", logo:"SSE.png")
-Company.create(name:"BT", url:"BT.co.uk", logo:"BT.png")
+Company.create(name:"Thames Water", url:"thameswater.co.uk", logo:"https://logo.clearbit.com/thameswater.co.uk")
+Company.create(name:"Scottish Power", url:"scottishpower.co.uk", logo:"https://logo.clearbit.com/scottishpower.co.uk")
+Company.create(name:"BT", url:"bt.com", logo:"https://logo.clearbit.com/bt.com")
 
 User.create(name:"Matthew Collins", email:"matt@matt.com", password:"London", location: "leeds", house_size:2, age:28)
 User.create(name:"Shane Walsh", email:"shane@shane.com", password:"London", location: "Dublin", house_size:4, age:31)

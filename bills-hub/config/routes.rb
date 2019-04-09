@@ -8,8 +8,14 @@ Rails.application.routes.draw do
       resources :companies
       post '/login', to: 'users#login'
       get '/validate', to: 'users#validate'
+      get '/admin/utilities', to: 'companies#index'
       post  '/signup',  to: 'users#create'
       put '/admin/user', to: 'users#update'
+      post 'admin/utilities/new', to: 'utilities#create'
+      put 'admin/utilities/new', to: 'users#update'
+
+
+
     end
   end
 end
