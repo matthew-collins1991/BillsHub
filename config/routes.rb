@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       get '/admin/utilities', to: 'companies#index'
       post  '/signup',  to: 'users#create'
       put '/admin/user', to: 'users#update'
+      put 'admin/bills/show', to: 'bills#update'
       post 'admin/utilities/new', to: 'utilities#create'
       put 'admin/utilities/new', to: 'users#update'
       post 'admin/utilities/show', to: 'bills#create'

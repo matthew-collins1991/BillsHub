@@ -1,7 +1,7 @@
 class Api::V1::BillsController < ApplicationController
 
   before_action :find_bill, only: [:update, :show, :destroy]
-  before_action :find_utility, only: [:create]
+  before_action :find_utility, only: [:create, :update]
 
 
     def index
