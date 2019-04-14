@@ -1,6 +1,7 @@
 class Api::V1::BillsController < ApplicationController
 
-  before_action :find_bill, only: [:update, :show]
+  before_action :find_bill, only: [:update, :show, :destroy]
+  before_action :find_utility, only: [:create]
 
 
     def index
@@ -14,6 +15,7 @@ class Api::V1::BillsController < ApplicationController
 
     def create
       @bill = Bill.new(bill_params)
+      @bill.utility = @utility
       if @bill.valid?
         @bill.save
         render json: @bill, status: :accepted
@@ -33,6 +35,11 @@ class Api::V1::BillsController < ApplicationController
       end
     end
 
+    def destroy
+      @bill.destroy
+      render json: @bill, status: :accepted
+    end
+
     private
 
     def bill_params
@@ -41,6 +48,10 @@ class Api::V1::BillsController < ApplicationController
 
     def find_bill
       @bill = Bill.find(params[:id])
+    end
+
+    def find_utility
+      @utility = Utility.find(params[:utility_id])
     end
 
 end

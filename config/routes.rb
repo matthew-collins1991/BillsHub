@@ -13,6 +13,8 @@ Rails.application.routes.draw do
       put '/admin/user', to: 'users#update'
       post 'admin/utilities/new', to: 'utilities#create'
       put 'admin/utilities/new', to: 'users#update'
+      post 'admin/utilities/show', to: 'bills#create'
+      delete 'admin/utilities/show', to: 'bills#destroy'
 
 
 

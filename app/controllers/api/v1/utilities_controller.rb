@@ -48,6 +48,8 @@ class Api::V1::UtilitiesController < ApplicationController
       end
     end
 
+    
+
     private
 
     def utility_params
